@@ -13,11 +13,11 @@ namespace FizzBuzz.Test
 
             //Act
             var result = FizzBuzz.GetFizzBuzz(maxValue);
-            
+
             //Assert
             Assert.Equal(result.Count, maxValue);
         }
-        
+
         [Fact]
         public void WhenInput3ShouldGetFizzReplace3InNumberStringList()
         {
@@ -28,11 +28,11 @@ namespace FizzBuzz.Test
 
             //Act
             var result = FizzBuzz.GetFizzBuzz(maxValue);
-            
+
             //Assert
             Assert.Equal(result, expect);
         }
-        
+
         [Fact]
         public void WhenInput5ShouldGetFizzReplace3AndBuzzReplace5InNumberStringList()
         {
@@ -43,7 +43,23 @@ namespace FizzBuzz.Test
 
             //Act
             var result = FizzBuzz.GetFizzBuzz(maxValue);
-            
+
+            //Assert
+            Assert.Equal(result, expect);
+        }
+
+        [Fact]
+        public void WhenInput15ShouldGetFizzBuzzReplace15InNumberStringList()
+        {
+            //Arrange
+            var maxValue = 15;
+
+            var expect = new List<string>
+                {"1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"};
+
+            //Act
+            var result = FizzBuzz.GetFizzBuzz(maxValue);
+
             //Assert
             Assert.Equal(result, expect);
         }
