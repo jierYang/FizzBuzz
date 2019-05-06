@@ -23,10 +23,19 @@ namespace FizzBuzz
             
             foreach (var number in numbers)
             {
-                result.Add(number % 3 == 0 ? "Fizz" : number.ToString());
+                result.Add(GetValue(number));
             }
 
             return result;
+        }
+
+        private static string GetValue(int number)
+        {
+            if (number % 3 == 0) return "Fizz";
+            
+            else if (number % 5 == 0) return "Buzz";
+
+            return number.ToString();
         }
     }
 }

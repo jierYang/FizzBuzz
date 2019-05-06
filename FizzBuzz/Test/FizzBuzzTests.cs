@@ -32,5 +32,20 @@ namespace FizzBuzz.Test
             //Assert
             Assert.Equal(result, expect);
         }
+        
+        [Fact]
+        public void WhenInput5ShouldGetFizzReplace3AndBuzzReplace5InNumberStringList()
+        {
+            //Arrange
+            var maxValue = 5;
+
+            var expect = new List<string> {"1", "2", "Fizz", "4", "Buzz"};
+
+            //Act
+            var result = FizzBuzz.GetFizzBuzz(maxValue);
+            
+            //Assert
+            Assert.Equal(result, expect);
+        }
     }
 }
