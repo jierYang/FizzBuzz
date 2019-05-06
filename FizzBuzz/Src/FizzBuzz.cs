@@ -10,6 +10,10 @@ namespace FizzBuzz
 
         public static IList<string> GetFizzBuzz(int maxValue)
         {
+            if (maxValue < MinValue)
+            {
+                throw new Exception(ErrorMessage.MinValueLessMaxValue);
+            }
             var numbers = Enumerable.Range(MinValue, maxValue).ToList();
 
             var result = FizzBuzzTranslate(numbers);

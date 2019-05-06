@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -62,6 +63,18 @@ namespace FizzBuzz.Test
 
             //Assert
             Assert.Equal(result, expect);
+        }
+
+        [Fact]
+        public void WhenInputIsLessThanMinValueShouldThrowException()
+        {
+            //Arrange
+            var maxValue = 0;
+            
+            //Assert
+            var exception = Assert.Throws<Exception>(() => FizzBuzz.GetFizzBuzz(maxValue));
+            
+            Assert.Equal(exception.Message, ErrorMessage.MinValueLessMaxValue);
         }
     }
 }
