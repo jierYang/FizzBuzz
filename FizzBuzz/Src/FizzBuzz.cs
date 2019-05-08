@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 
 namespace FizzBuzz
 {
@@ -14,17 +15,31 @@ namespace FizzBuzz
             {
                 throw new Exception(ErrorMessage.MinValueLessMaxValue);
             }
+
             var numbers = Enumerable.Range(MinValue, maxValue).ToList();
 
             var result = FizzBuzzTranslate(numbers);
 
+            FizzBuzzReplace(result);
+
             return result;
+        }
+
+        private static void FizzBuzzReplace(IList<string> result)
+        {
+            for (var i = 0; i < result.Count; i++)
+            {
+                if (result[i].Contains("3"))
+                {
+                    result[i] = "Fizz";
+                }
+            }
         }
 
         private static IList<string> FizzBuzzTranslate(List<int> numbers)
         {
             var result = new List<string>();
-            
+
             foreach (var number in numbers)
             {
                 result.Add(GetValue(number));

@@ -23,9 +23,9 @@ namespace FizzBuzz.Test
         public void WhenInput3ShouldGetFizzReplace3InNumberStringList()
         {
             //Arrange
-            var maxValue = 6;
+            var maxValue = 3;
 
-            var expect = new List<string> {"1", "2", "Fizz", "4", "5", "Fizz"};
+            var expect = new List<string> {"1", "2", "Fizz"};
 
             //Act
             var result = FizzBuzz.GetFizzBuzz(maxValue);
@@ -55,14 +55,11 @@ namespace FizzBuzz.Test
             //Arrange
             var maxValue = 15;
 
-            var expect = new List<string>
-                {"1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"};
-
             //Act
             var result = FizzBuzz.GetFizzBuzz(maxValue);
 
             //Assert
-            Assert.Equal(result, expect);
+            Assert.Equal("FizzBuzz", result[14]);
         }
 
         [Fact]
@@ -75,6 +72,19 @@ namespace FizzBuzz.Test
             var exception = Assert.Throws<Exception>(() => FizzBuzz.GetFizzBuzz(maxValue));
             
             Assert.Equal(exception.Message, ErrorMessage.MinValueLessMaxValue);
+        }
+
+        [Fact]
+        public void WhenInput13ShouldGetFizz()
+        {
+            //Arrange
+            var maxValue = 13;
+
+            //Act
+            var result = FizzBuzz.GetFizzBuzz(maxValue);
+
+            //Assert
+            Assert.Equal("Fizz", result[12]);
         }
     }
 }
