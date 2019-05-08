@@ -33,6 +33,11 @@ namespace FizzBuzz
                 {
                     result[i] = "Fizz";
                 }
+                
+                if (result[i].Contains("5"))
+                {
+                    result[i] = "Buzz";
+                }
             }
         }
 

@@ -86,5 +86,18 @@ namespace FizzBuzz.Test
             //Assert
             Assert.Equal("Fizz", result[12]);
         }
+        
+        [Fact]
+        public void WhenInput52ShouldGetBuzz()
+        {
+            //Arrange
+            var maxValue = 52;
+
+            //Act
+            var result = FizzBuzz.GetFizzBuzz(maxValue);
+
+            //Assert
+            Assert.Equal("Buzz", result[51]);
+        }
     }
 }
