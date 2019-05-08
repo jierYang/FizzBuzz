@@ -17,3 +17,5 @@ Step 2:
 6. When the number is contains 3, "Fizz" instead of the number.
 
 7. When the number is contains 5, "Buzz" instead of the number.
+
+8: refactor loop

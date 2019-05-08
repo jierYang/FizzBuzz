@@ -16,43 +16,35 @@ namespace FizzBuzz
                 throw new Exception(ErrorMessage.MinValueLessMaxValue);
             }
 
-            var numbers = Enumerable.Range(MinValue, maxValue).ToList();
-
-            var result = FizzBuzzTranslate(numbers);
-
-            FizzBuzzReplace(result);
-
-            return result;
-        }
-
-        private static void FizzBuzzReplace(IList<string> result)
-        {
-            for (var i = 0; i < result.Count; i++)
-            {
-                if (result[i].Contains("3"))
-                {
-                    result[i] = "Fizz";
-                }
-                
-                if (result[i].Contains("5"))
-                {
-                    result[i] = "Buzz";
-                }
-            }
-        }
-
-        private static IList<string> FizzBuzzTranslate(List<int> numbers)
-        {
             var result = new List<string>();
 
-            foreach (var number in numbers)
+            for (var i = MinValue; i <= maxValue; i++)
             {
-                result.Add(GetValue(number));
+                var str = GetValue(i);
+
+                str = FizzBuzzContainsThreeOrFive(str);
+                
+                result.Add(str);
             }
 
             return result;
         }
 
+        private static string FizzBuzzContainsThreeOrFive(string str)
+        {
+            if (str.Contains("3"))
+            {
+               return "Fizz";
+            }
+
+            if (str.Contains("5"))
+            {
+                return "Buzz";
+            }
+
+            return str;
+        }
+        
         private static string GetValue(int number)
         {
             if (number % 15 == 0) return "FizzBuzz";
